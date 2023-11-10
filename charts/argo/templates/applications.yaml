@@ -27,7 +27,7 @@ spec:
   source:
     repoURL: 'https://github.com/carlosrodf/argocd-demo.git'
     targetRevision: {{ .Values.ref }}
-    path: ./helmfile2.yaml
+    path: ./sample-app
     plugin:
       parameters:
         - name: HELMFILE_USE_CONTEXT_NAMESPACE
