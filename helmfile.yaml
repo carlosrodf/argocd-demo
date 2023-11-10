@@ -15,7 +15,3 @@ releases:
   chart: charts/argo/
   values:
   - bootstrap.yaml
-
-- name: sample-app
-  namespace: default
-  chart: charts/demo/
