@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nclouds-sample-app
+  labels:
+    app: nclouds
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nclouds
+  template:
+    metadata:
+      labels:
+        app: nclouds
+    spec:
+      containers:
+      - name: sample-app
+        image: ncloudspublic/sample-app:latest
+        env:
+        - name: CUSTOM_MESSAGE
+          value: "Hello friday demo!!!!"
+        ports:
+        - containerPort: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nclouds-sample-app
+spec:
+  selector:
+    app: nclouds
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
