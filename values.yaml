@@ -1,32 +1,30 @@
 
 
-# repoServer:
-#   volumes:
-#   - emptyDir: {}
-#     name: helmfile-cmp-tmp
-#   extraContainers:
-#   - name: helmfile-plugin
-#     image: travisghansen/argo-cd-helmfile:latest
-#     command: [/var/run/argocd/argocd-cmp-server]
-#     securityContext:
-#       runAsNonRoot: true
-#       runAsUser: 999
-#     volumeMounts:
-#       - mountPath: /var/run/argocd
-#         name: var-files
-#       - mountPath: /home/argocd/cmp-server/plugins
-#         name: plugins
-#       - mountPath: /tmp
-#         name: helmfile-cmp-tmp
+repoServer:
+  volumes:
+  - emptyDir: {}
+    name: helmfile-cmp-tmp
+  extraContainers:
+  - name: helmfile-plugin
+    image: travisghansen/argo-cd-helmfile:latest
+    command: [/var/run/argocd/argocd-cmp-server]
+    securityContext:
+      runAsNonRoot: true
+      runAsUser: 999
+    volumeMounts:
+      - mountPath: /var/run/argocd
+        name: var-files
+      - mountPath: /home/argocd/cmp-server/plugins
+        name: plugins
+      - mountPath: /tmp
+        name: helmfile-cmp-tmp
 
 configs:
-  # repositories:
-  #   nops-platform-infra:
-  #     url: https://gitlab.com/nopsteam/nops-platform-infra.git
-  #     name: nops-platform-infra
-  #     type: git
-  #     password: glpat-f8TgQFEv-MqGsptifqX3
-  #     username: argocd
+  repositories:
+    demo-repo:
+      url: https://github.com/carlosrodf/argocd-demo.git
+      name: nops-platform-infra
+      type: git
   cm:
     "admin.enabled": true
   params:

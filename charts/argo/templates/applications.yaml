@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://gitlab.com/nopsteam/nops-platform-infra.git'
+    repoURL: 'https://github.com/carlosrodf/argocd-demo.git'
     targetRevision: {{ .Values.ref }}
     path: .
     plugin:
@@ -16,22 +16,3 @@ spec:
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: argo
-# ---
-# apiVersion: argoproj.io/v1alpha1
-# kind: Application
-# metadata:
-#   name: cluster-bootstrap
-#   namespace: argo
-# spec:
-#   project: cluster-bootstrap
-#   source:
-#     repoURL: 'https://gitlab.com/nopsteam/nops-platform-infra.git'
-#     targetRevision: {{ .Values.ref }}
-#     path: infrastructure/helm/environments/{{ .Values.environment }}/cluster-bootstrap
-#     plugin:
-#       parameters:
-#         - name: HELMFILE_USE_CONTEXT_NAMESPACE
-#           string: 'true'
-#   destination:
-#     server: 'https://kubernetes.default.svc'
-#     namespace: argo
