@@ -1,4 +1,4 @@
 releases:
 - name: sample-app
-  namespace: default
+  namespace: argo
   chart: ../charts/demo/

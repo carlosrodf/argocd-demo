@@ -10,8 +10,8 @@ releases:
   values:
   - values.yaml
 
-- name: argo-bootstrap
-  namespace: argo
-  chart: charts/argo/
-  values:
-  - bootstrap.yaml
+# - name: argo-bootstrap
+#   namespace: argo
+#   chart: charts/argo/
+#   values:
+#   - bootstrap.yaml
