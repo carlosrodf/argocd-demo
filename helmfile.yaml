@@ -1,0 +1,17 @@
+repositories:
+- name: argo
+  url: https://argoproj.github.io/argo-helm
+
+releases:
+- name: argo-cd
+  namespace: argo
+  chart: argo/argo-cd
+  version: "5.51.1"
+  values:
+  - values.yaml
+
+- name: argo-bootstrap
+  namespace: argo
+  chart: charts/argo/
+  values:
+  - bootstrap.yaml
