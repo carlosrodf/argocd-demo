@@ -1,0 +1,4 @@
+releases:
+- name: sample-app
+  namespace: default
+  chart: charts/demo/

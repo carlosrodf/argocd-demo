@@ -16,3 +16,22 @@ spec:
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: argo
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: sample-app
+  namespace: default
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/carlosrodf/argocd-demo.git'
+    targetRevision: {{ .Values.ref }}
+    path: ./helmfile2.yaml
+    plugin:
+      parameters:
+        - name: HELMFILE_USE_CONTEXT_NAMESPACE
+          string: 'true'
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: argo
